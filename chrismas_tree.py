@@ -33,3 +33,9 @@ def make_branchs_first():
         s += SPACE * (1 * OFF_SET) + SPACE * ((FLOORS-floor)*3) + LEAF * stars + "\n"
         stars += 6
     return s.rsplit('\n', 1)[0]
+
+
+if __name__ == "__main__":
+    print(three_floors())
+    print("--------")
+    print(make_branchs())

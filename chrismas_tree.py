@@ -1,3 +1,8 @@
+OFF_SET = 4
+SPACE = " "
+LEAF = "*"
+
+
 def make_branchs(floors_number=3, branch_number_per_floor=4):
     tree = ""
     leafs_on_top = 1

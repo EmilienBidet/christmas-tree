@@ -1,9 +1,8 @@
-
 SPACE = " "
 LEAF = "*"
+BAUBLE = "0"
 
-
-def make_branchs(floors_number=3, branch_number_per_floor=4):
+def make_branchs_second(floors_number=3, branch_number_per_floor=4):
     OFF_SET = branch_number_per_floor
     tree = ""
     leafs_on_top = 1
@@ -39,6 +38,7 @@ def make_pimped_branchs(floors_number=3, branch_number_per_floor=4):
 
 
 def make_branchs_first():
+    OFF_SET = 4
     FLOORS = 4
     stars = 1
     tree = ""
@@ -79,4 +79,5 @@ def make_pimped_trunk():
     return trunk.rsplit('\n', 1)[0]
 
 if __name__ == "__main__":
-    print(make_branchs())
+    print(make_pimped_branchs())
+    print(make_pimped_trunk())

@@ -17,6 +17,26 @@ def make_branchs(floors_number=3, branch_number_per_floor=4):
         modificateur_leaf += 2
     return tree.rsplit('\n', 1)[0]
 
+def make_pimped_branchs(floors_number=3, branch_number_per_floor=4):
+    OFF_SET = branch_number_per_floor
+    tree = ""
+    leafs_on_top = 1
+    modificateur_leaf = 2
+    for floor in range(floors_number):
+        leafs = leafs_on_top
+        for branch in range(branch_number_per_floor):
+            if branch == 0 and floor != 0:
+                current_off_set = (OFF_SET * (floors_number - floor + 1))
+                space_number = int((leafs_on_top - 2 + (branch_number_per_floor - 1) * (modificateur_leaf - 2 ) - leafs_on_top - 2) / 2)
+                tree += SPACE * current_off_set + BAUBLE + SPACE * space_number + LEAF * leafs + SPACE * space_number + BAUBLE + SPACE * current_off_set + "\n"
+            else:
+                current_off_set = (OFF_SET * (floors_number - floor))
+                tree += SPACE * current_off_set + SPACE * ((branch_number_per_floor - branch - 1)*int(modificateur_leaf/2)) + LEAF * leafs + SPACE * current_off_set + "\n"
+            leafs += modificateur_leaf
+        leafs_on_top += 2
+        modificateur_leaf += 2
+    return tree.rsplit('\n', 1)[0]
+
 
 def make_branchs_first():
     FLOORS = 4

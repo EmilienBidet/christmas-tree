@@ -41,5 +41,22 @@ def make_trunk():
         trunk += SPACE * 13 + LEAF * 5 + "\n"
     return trunk.rsplit('\n', 1)[0]
 
+def make_pimped_trunk():
+    trunk = ""
+    for value in range(3):
+        trunk += SPACE * 4
+        for el in range(23):
+            if el in range(9,14):
+                trunk += "*"
+            elif value == 0 and el % 2 != 0:
+                trunk += "|"
+            elif value == 1 and el % 2 != 0:
+                trunk += "0"
+            else:
+                trunk += SPACE
+        trunk += "\n"
+
+    return trunk.rsplit('\n', 1)[0]
+
 if __name__ == "__main__":
     print(make_branchs())

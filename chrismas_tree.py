@@ -35,6 +35,11 @@ def make_branchs_first():
         stars += 6
     return s.rsplit('\n', 1)[0]
 
+def make_trunk():
+    trunk = ""
+    for value in range(3):
+        trunk += SPACE * 13 + LEAF * 5 + "\n"
+    return trunk.rsplit('\n', 1)[0]
 
 if __name__ == "__main__":
     print(make_branchs())

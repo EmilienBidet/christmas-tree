@@ -105,5 +105,5 @@ def make_pimped_trunk(floors_number=3, branch_number_per_floor=4):
     return trunk.rsplit('\n', 1)[0]
 
 if __name__ == "__main__":
-    print(make_pimped_branchs())
-    print(make_pimped_trunk())
+    print(make_pimped_branchs(5,4))
+    print(make_pimped_trunk(5,4))

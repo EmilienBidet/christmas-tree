@@ -65,6 +65,17 @@ def make_trunk():
     return trunk.rsplit('\n', 1)[0]
 
 def make_pimped_trunk():
+def get_last_size(floors_number=3, branch_number_per_floor=4):
+    leafs_on_top = 1
+    modificateur_leaf = 2
+    for floor in range(floors_number):
+        leafs = leafs_on_top
+        for branch in range(branch_number_per_floor):
+            leafs += modificateur_leaf
+        leafs_on_top += 2
+        modificateur_leaf += 2
+    return leafs - modificateur_leaf + 2
+
     trunk = ""
     for value in range(3):
         trunk += SPACE * 4

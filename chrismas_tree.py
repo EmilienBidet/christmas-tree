@@ -63,7 +63,6 @@ def make_trunk():
         trunk += SPACE * 13 + LEAF * 5 + "\n"
     return trunk.rsplit('\n', 1)[0]
 
-def make_pimped_trunk():
 def get_last_size(floors_number=3, branch_number_per_floor=4):
     leafs_on_top = 1
     modificateur_leaf = 2
@@ -88,14 +87,21 @@ def make_trunk(floors_number=3, branch_number_per_floor=4):
         trunk += "\n"
     return trunk.rsplit('\n', 1)[0]
 
+def make_pimped_trunk(floors_number=3, branch_number_per_floor=4):
+    trunk = ""
+    for value in range(3):
+        trunk += SPACE * branch_number_per_floor
+        leafs = get_last_size(floors_number, branch_number_per_floor)
+        for el in range(leafs):
+            if el in range(int(leafs/2) - 2, int(leafs/2) + 3):
+                trunk += TRUNK
             elif value == 0 and el % 2 != 0:
-                trunk += "|"
+                trunk += GARLAND
             elif value == 1 and el % 2 != 0:
-                trunk += "0"
+                trunk += BAUBLE_GARLAND
             else:
                 trunk += SPACE
         trunk += "\n"
-
     return trunk.rsplit('\n', 1)[0]
 
 if __name__ == "__main__":

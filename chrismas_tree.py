@@ -75,12 +75,19 @@ def get_last_size(floors_number=3, branch_number_per_floor=4):
         modificateur_leaf += 2
     return leafs - modificateur_leaf + 2
 
+def make_trunk(floors_number=3, branch_number_per_floor=4):
     trunk = ""
     for value in range(3):
-        trunk += SPACE * 4
-        for el in range(23):
-            if el in range(9,14):
-                trunk += "*"
+        trunk += SPACE * branch_number_per_floor
+        leafs = get_last_size(floors_number, branch_number_per_floor)
+        for el in range(leafs):
+            if el in range(int(leafs/2) - 2, int(leafs/2) + 3):
+                trunk += TRUNK
+            else:
+                trunk += SPACE
+        trunk += "\n"
+    return trunk.rsplit('\n', 1)[0]
+
             elif value == 0 and el % 2 != 0:
                 trunk += "|"
             elif value == 1 and el % 2 != 0:

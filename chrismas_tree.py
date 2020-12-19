@@ -1,8 +1,11 @@
 SPACE = " "
 LEAF = "*"
 BAUBLE = "0"
+TRUNK = "*"
+GARLAND = "|"
+BAUBLE_GARLAND = "0"
 
-def make_branchs_second(floors_number=3, branch_number_per_floor=4):
+def make_branchs(floors_number=3, branch_number_per_floor=4):
     OFF_SET = branch_number_per_floor
     tree = ""
     leafs_on_top = 1

@@ -42,6 +42,7 @@ def pimped_branchs(floors_number, branch_number_per_floor):
         modificateur_leaf += 2
     return tree.rsplit('\n', 1)[0]
 
+def get_last_size(floors_number, branch_number_per_floor):
     leafs_on_top = 1
     modificateur_leaf = 2
     for floor in range(floors_number):

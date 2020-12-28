@@ -128,5 +128,4 @@ def chrismas_tree_duplicator(rows, columns, chrismas_tree):
     return final.rsplit('\n', 2)[0]
 
 if __name__ == "__main__":
-    print(make_pimped_branchs(5,4))
-    print(make_pimped_trunk(5,4))
+    print(chrismas_tree_duplicator(3, 4, chrismas_tree(3,4)))

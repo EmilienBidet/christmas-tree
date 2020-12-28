@@ -132,6 +132,17 @@ def death_star(floors_number, branch_number_per_floor):
             star += (value + 1) * SPACE + STAR + (value + 1) * SPACE + SPACE * OFF_SET + '\n'
     return star.rsplit('\n', 1)[0]
 
+def chrismas_tree_duplicator(rows, columns, chrismas_tree):
+    chrismas_tree = chrismas_tree.split('\n')
+    final = ""
+    for row in range(rows):
+        for line in chrismas_tree:
+            for column in range(columns):
+                final += line
+            final += '\n'
+        final += '\n'
+    return final.rsplit('\n', 2)[0]
+
 if __name__ == "__main__":
     print(make_pimped_branchs(5,4))
     print(make_pimped_trunk(5,4))

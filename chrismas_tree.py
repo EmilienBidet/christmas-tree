@@ -104,6 +104,34 @@ def make_pimped_trunk(floors_number=3, branch_number_per_floor=4):
         trunk += "\n"
     return trunk.rsplit('\n', 1)[0]
 
+def death_star(floors_number, branch_number_per_floor):
+    OFF_SET = floors_number * branch_number_per_floor + (branch_number_per_floor-4) ### MWOUAI MWOUAI MWOUAI....
+    star = ""
+    space_between = 2
+    for value in range(3):
+        star += SPACE * OFF_SET
+        if value != 2:
+            star += value * SPACE + STAR + space_between * SPACE + STAR + space_between * SPACE + STAR + value * SPACE + SPACE * OFF_SET + '\n'
+            space_between -= 1
+        else:
+            star += (value + 1) * SPACE + STAR + (value + 1) * SPACE + SPACE * OFF_SET + '\n'
+    star += SPACE * OFF_SET
+    for couple in range(2):
+        for stars in range(3):
+            star += STAR
+        if couple == 0:
+            star += SPACE
+    star += SPACE * OFF_SET + '\n'
+    space_between = 1
+    for value in range(2,-1,-1):
+        star += SPACE * OFF_SET
+        if value != 2:
+            star += value * SPACE + STAR + space_between * SPACE + STAR_LINK + space_between * SPACE + STAR + value * SPACE + SPACE * OFF_SET + '\n'
+            space_between += 1
+        else:
+            star += (value + 1) * SPACE + STAR + (value + 1) * SPACE + SPACE * OFF_SET + '\n'
+    return star.rsplit('\n', 1)[0]
+
 if __name__ == "__main__":
     print(make_pimped_branchs(5,4))
     print(make_pimped_trunk(5,4))

@@ -4,6 +4,8 @@ BAUBLE = "0"
 TRUNK = "*"
 GARLAND = "|"
 BAUBLE_GARLAND = "0"
+STAR = "*"
+STAR_LINK = "|"
 
 def branchs(floors_number, branch_number_per_floor):
     OFF_SET = branch_number_per_floor

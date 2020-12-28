@@ -5,7 +5,7 @@ TRUNK = "*"
 GARLAND = "|"
 BAUBLE_GARLAND = "0"
 
-def make_branchs(floors_number=3, branch_number_per_floor=4):
+def branchs(floors_number, branch_number_per_floor):
     OFF_SET = branch_number_per_floor
     tree = ""
     leafs_on_top = 1
@@ -19,7 +19,7 @@ def make_branchs(floors_number=3, branch_number_per_floor=4):
         modificateur_leaf += 2
     return tree.rsplit('\n', 1)[0]
 
-def make_pimped_branchs(floors_number=3, branch_number_per_floor=4):
+def pimped_branchs(floors_number, branch_number_per_floor):
     OFF_SET = branch_number_per_floor
     tree = ""
     leafs_on_top = 1
@@ -33,7 +33,8 @@ def make_pimped_branchs(floors_number=3, branch_number_per_floor=4):
                 tree += SPACE * current_off_set + BAUBLE + SPACE * space_number + LEAF * leafs + SPACE * space_number + BAUBLE + SPACE * current_off_set + "\n"
             else:
                 current_off_set = (OFF_SET * (floors_number - floor))
-                tree += SPACE * current_off_set + SPACE * ((branch_number_per_floor - branch - 1)*int(modificateur_leaf/2)) + LEAF * leafs + SPACE * current_off_set + "\n"
+                space_number = ((branch_number_per_floor - branch - 1)*int(modificateur_leaf/2))
+                tree += SPACE * current_off_set + SPACE * space_number + LEAF * leafs + SPACE * space_number + SPACE * current_off_set + "\n"
             leafs += modificateur_leaf
         leafs_on_top += 2
         modificateur_leaf += 2
@@ -74,10 +75,11 @@ def get_last_size(floors_number=3, branch_number_per_floor=4):
         modificateur_leaf += 2
     return leafs - modificateur_leaf + 2
 
-def make_trunk(floors_number=3, branch_number_per_floor=4):
+def trunk(floors_number, branch_number_per_floor):
+    OFF_SET = branch_number_per_floor
     trunk = ""
     for value in range(3):
-        trunk += SPACE * branch_number_per_floor
+        trunk += SPACE * OFF_SET
         leafs = get_last_size(floors_number, branch_number_per_floor)
         for el in range(leafs):
             if el in range(int(leafs/2) - 2, int(leafs/2) + 3):
@@ -87,10 +89,11 @@ def make_trunk(floors_number=3, branch_number_per_floor=4):
         trunk += "\n"
     return trunk.rsplit('\n', 1)[0]
 
-def make_pimped_trunk(floors_number=3, branch_number_per_floor=4):
+def pimped_trunk(floors_number, branch_number_per_floor):
     trunk = ""
+    OFF_SET = branch_number_per_floor
     for value in range(3):
-        trunk += SPACE * branch_number_per_floor
+        trunk += SPACE * OFF_SET
         leafs = get_last_size(floors_number, branch_number_per_floor)
         for el in range(leafs):
             if el in range(int(leafs/2) - 2, int(leafs/2) + 3):
@@ -101,7 +104,7 @@ def make_pimped_trunk(floors_number=3, branch_number_per_floor=4):
                 trunk += BAUBLE_GARLAND
             else:
                 trunk += SPACE
-        trunk += "\n"
+        trunk += SPACE * OFF_SET + "\n"
     return trunk.rsplit('\n', 1)[0]
 
 def death_star(floors_number, branch_number_per_floor):
